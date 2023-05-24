@@ -2,7 +2,8 @@
 
 LAST_COMMENT_URL=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $COMMENTS_URL | jq -r '.[-1].url')
 
-if [[ ! -z "$LAST_COMMENT_URL" ]]; then
-    LAST_COMMENT_BODY=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $LAST_COMMENT_URL | jq -r '.body')
-    echo "Last merge comment: $LAST_COMMENT_BODY"
+MERGE_COMMIT_MESSAGE=$(curl -s -H "Authorization: token ${{ GITHUB_TOKEN }}" https://api.github.com/repos/${{ REPOSITORY }}/commits/${{ MERGE_COMMIT_SHA }} | jq -r .commit.message)
+
+if [[ ! -z "$MERGE_COMMIT_MESSAGE" ]]; then
+    echo "Last merge comment: $MERGE_COMMIT_MESSAGE"
 fi
