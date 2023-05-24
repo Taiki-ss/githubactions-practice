@@ -15,7 +15,6 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
           run: |
-                PR_NUMBER=${{ github.event.pull_request.number }}
                 REPOSITORY=${{ github.repository }}
                 MERGE_COMMIT_SHA=${{ github.event.pull_request.merge_commit_sha }}
                 chmod +x ./.github/script.sh
