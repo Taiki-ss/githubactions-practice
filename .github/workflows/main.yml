@@ -16,6 +16,8 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
             REPOSITORY: ${{ github.repository }}
             MERGE_COMMIT_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+            DOCBASE_API_KEY: ${{ secrets.DOCBASE_API_KEY }}
+            DOCBASE_TEAMS: ${{ secrets.DOCBASE_TEAMS }}
           run: |
                 
                 chmod +x ./.github/script.sh
