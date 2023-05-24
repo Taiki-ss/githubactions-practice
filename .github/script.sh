@@ -13,6 +13,6 @@ curl \
   -H 'Content-Type: application/json' \
   -X PATCH \
   -d "{
-         'body': '$DOCBASE_BODY \n $MERGE_COMMIT_MESSAGE'
+         \"body\": \"$DOCBASE_BODY \n $MERGE_COMMIT_MESSAGE\"
       }" \
   https://api.docbase.io/teams/$DOCBASE_TEAMS/posts/$DOCBASE_POST_ID
