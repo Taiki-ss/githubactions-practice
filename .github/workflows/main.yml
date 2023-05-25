@@ -20,6 +20,5 @@ jobs:
             DOCBASE_TEAMS: ${{ secrets.DOCBASE_TEAMS }}
             TZ: "Asia/Tokyo" # タイムゾーンを指定
           run: |
-                
-                chmod +x ./.github/script.sh
-                ./.github/script.sh
+            chmod +x ./.github/script.sh
+            ./.github/script.sh
