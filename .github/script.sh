@@ -1,6 +1,7 @@
 #!/bin/sh
 
 DOCBASE_POST_ID=2958885
+DATE=$(date "+%Y/%m/%d %H:%M")
 
 MERGE_COMMIT_MESSAGE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$REPOSITORY/commits/$MERGE_COMMIT_SHA | jq -r .commit.message)
 
@@ -13,6 +14,6 @@ curl \
   -H 'Content-Type: application/json' \
   -X PATCH \
   -d "{
-         \"body\": \"$DOCBASE_BODY \n $MERGE_COMMIT_MESSAGE\"
+         \"body\": \"$DOCBASE_BODY \n #【$DATE】$MERGE_COMMIT_MESSAGE\"
       }" \
   https://api.docbase.io/teams/$DOCBASE_TEAMS/posts/$DOCBASE_POST_ID
